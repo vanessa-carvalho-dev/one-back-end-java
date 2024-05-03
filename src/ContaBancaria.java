@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ContaBancaria {
     public static void main(String[] args) {
         String nome = "Vanessa Carvalho";
@@ -13,5 +15,21 @@ public class ContaBancaria {
                 Saldo inicial: R$ %.2f
                 ************************************************
                 """.formatted(nome, tipoConta, saldo));
+
+        System.out.println("""
+                Operações
+                
+                1 - Consultar saldo
+                2 - Receber valor
+                3 - Transferir valor
+                4 - Sair
+                """);
+
+        Scanner leitorTeclado = new Scanner(System.in);
+        System.out.println("Digite a opção desejada:");
+        int opcao = leitorTeclado.nextInt();
+
+
+
     }
 }
