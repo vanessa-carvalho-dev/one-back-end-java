@@ -37,18 +37,29 @@ public class ContaBancaria {
                 case 2:
                     System.out.println("Qual o valor a ser depositado na sua conta?");
                     double valorDeposito = leituraDoTeclado.nextDouble();
-                    saldo += valorDeposito;
+
+                    if (valorDeposito <= 0) {
+                        System.out.println("Não é possível depositar valores inferiores a R$ 0,00");
+                    } else {
+                        saldo += valorDeposito;
+                    }
                     break;
                 case 3:
                     System.out.println("Qual o valor a ser transferido?");
                     double valorTransferencia = leituraDoTeclado.nextDouble();
-                    saldo -= valorTransferencia;
+
+                    if (valorTransferencia > saldo) {
+                        System.out.println("Você não tem saldo suficiente. Realize um depósito");
+                    } else {
+                        saldo -= valorTransferencia;
+                    }
                     break;
                 default:
                     System.out.println("Opção inválida");
             }
 
             System.out.println("""
+                ---------------------------------------------------
                 Operações
 
                 1 - Consultar saldo
