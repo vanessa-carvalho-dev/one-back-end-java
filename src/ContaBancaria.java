@@ -25,9 +25,9 @@ public class ContaBancaria {
                 4 - Sair
                 """);
 
-        Scanner leitorTeclado = new Scanner(System.in);
+        Scanner leituraDoTeclado = new Scanner(System.in);
         System.out.println("Digite a opção desejada:");
-        int opcao = leitorTeclado.nextInt();
+        int opcao = leituraDoTeclado.nextInt();
 
         while(opcao != 4){
             switch (opcao){
@@ -35,9 +35,13 @@ public class ContaBancaria {
                     System.out.println(String.format("O saldo atual é R$ %.2f", saldo));
                     break;
                 case 2:
+                    //receber valor do teclado
+                    //somar com o saldo
                     System.out.println("Em desenvolvimento...");
                     break;
                 case 3:
+                    //receber valor do teclado
+                    //subtrair com o saldo
                     System.out.println("Em desenvolvimento...");
                     break;
                 default:
@@ -54,7 +58,7 @@ public class ContaBancaria {
                 """);
 
             System.out.println("Digite a opção desejada:");
-            opcao = leitorTeclado.nextInt();
+            opcao = leituraDoTeclado.nextInt();
         }
 
     }
