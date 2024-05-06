@@ -35,14 +35,14 @@ public class ContaBancaria {
                     System.out.println(String.format("O saldo atual é R$ %.2f", saldo));
                     break;
                 case 2:
-                    //receber valor do teclado
-                    //somar com o saldo
-                    System.out.println("Em desenvolvimento...");
+                    System.out.println("Qual o valor a ser depositado na sua conta?");
+                    double valorDeposito = leituraDoTeclado.nextDouble();
+                    saldo += valorDeposito;
                     break;
                 case 3:
-                    //receber valor do teclado
-                    //subtrair com o saldo
-                    System.out.println("Em desenvolvimento...");
+                    System.out.println("Qual o valor a ser transferido?");
+                    double valorTransferencia = leituraDoTeclado.nextDouble();
+                    saldo -= valorTransferencia;
                     break;
                 default:
                     System.out.println("Opção inválida");
