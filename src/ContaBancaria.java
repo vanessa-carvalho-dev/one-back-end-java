@@ -16,20 +16,22 @@ public class ContaBancaria {
                 ************************************************
                 """.formatted(nome, tipoConta, saldo));
 
-        System.out.println("""
-                Operações
-                
+        String menu = """
+                ** Digite sua opção: **
                 1 - Consultar saldo
                 2 - Receber valor
                 3 - Transferir valor
                 4 - Sair
-                """);
+                
+                """;
 
-        Scanner leituraDoTeclado = new Scanner(System.in);
-        System.out.println("Digite a opção desejada:");
-        int opcao = leituraDoTeclado.nextInt();
+        int opcao = 0;
 
         while(opcao != 4){
+            System.out.println(menu);
+            Scanner leituraDoTeclado = new Scanner(System.in);
+            opcao = leituraDoTeclado.nextInt();
+
             switch (opcao){
                 case 1:
                     System.out.println(String.format("O saldo atual é R$ %.2f", saldo));
@@ -42,6 +44,8 @@ public class ContaBancaria {
                         System.out.println("Não é possível depositar valores inferiores a R$ 0,00");
                     } else {
                         saldo += valorDeposito;
+                        System.out.println(String.format("Seu novo saldo é: R$ %.2f", saldo));
+
                     }
                     break;
                 case 3:
@@ -49,27 +53,18 @@ public class ContaBancaria {
                     double valorTransferencia = leituraDoTeclado.nextDouble();
 
                     if (valorTransferencia > saldo) {
-                        System.out.println("Você não tem saldo suficiente. Realize um depósito");
+                        System.out.println("Não há saldo para realizar a transferência");
                     } else {
                         saldo -= valorTransferencia;
+                        System.out.println(String.format("Seu novo saldo é: R$ %.2f", saldo));
                     }
+                    break;
+                case 4:
+                    System.out.println("Aplicação finalizada. Volte sempre ^^");
                     break;
                 default:
                     System.out.println("Opção inválida");
             }
-
-            System.out.println("""
-                ---------------------------------------------------
-                Operações
-
-                1 - Consultar saldo
-                2 - Receber valor
-                3 - Transferir valor
-                4 - Sair
-                """);
-
-            System.out.println("Digite a opção desejada:");
-            opcao = leituraDoTeclado.nextInt();
         }
 
     }
