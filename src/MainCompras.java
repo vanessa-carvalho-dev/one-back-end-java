@@ -6,14 +6,26 @@ public class MainCompras {
 
         System.out.println("Digite o limite do cartão:");
         float limite = leituraDoTeclado.nextFloat();
+        CartaoDeCredito cartao = new CartaoDeCredito(limite);
 
-        System.out.println("Digite a descrição da compra:");
-        String descricao = leituraDoTeclado.next();
+        int menu = 1;
+        while (menu != 0) {
+            System.out.println("Digite a descrição da compra:");
+            String descricao = leituraDoTeclado.next();
 
-        System.out.println("Digite o valor da compra:");
-        float valor = leituraDoTeclado.nextFloat();
+            System.out.println("Digite o valor da compra:");
+            float valor = leituraDoTeclado.nextFloat();
 
-        System.out.println("Compra realizada!");
+            Compra item = new Compra(descricao, valor);
+            if(!cartao.novaCompra(item)){
+                System.out.println("Saldo insuficiente!");
+            }
+            System.out.println("Compra realizada!");
+            System.out.println("Digite 0 para SAIR ou 1 para CONTINUAR");
+            menu = leituraDoTeclado.nextInt();
+        }
+
+        //listagem compras
 
     }
 }
