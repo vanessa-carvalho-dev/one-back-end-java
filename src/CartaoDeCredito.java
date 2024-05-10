@@ -12,10 +12,6 @@ public class CartaoDeCredito {
         this.compras = new ArrayList<>();
     }
 
-    public float getSaldo() {
-        return saldo;
-    }
-
     public boolean novaCompra(Compra item){
         if (item.getValor() > this.saldo){
             return false;
@@ -25,5 +21,11 @@ public class CartaoDeCredito {
         return true;
     }
 
+    public List<Compra> getCompras() {
+        return compras;
+    }
 
+    public float getSaldo() {
+        return saldo;
+    }
 }
