@@ -17,12 +17,15 @@ public class MainCompras {
             float valor = leituraDoTeclado.nextFloat();
 
             Compra item = new Compra(descricao, valor);
-            if(!cartao.novaCompra(item)){
+            if (!cartao.novaCompra(item)){
                 System.out.println("Saldo insuficiente!");
+                break;
+            } else {
+                System.out.println("Compra realizada!");
+                System.out.println("Digite 0 para SAIR ou 1 para CONTINUAR");
+                menu = leituraDoTeclado.nextInt();
             }
-            System.out.println("Compra realizada!");
-            System.out.println("Digite 0 para SAIR ou 1 para CONTINUAR");
-            menu = leituraDoTeclado.nextInt();
+
         }
 
         //listagem compras
